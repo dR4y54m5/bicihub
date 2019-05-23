@@ -162,18 +162,38 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          //make first character capital and replace '_' with '  '
-          title: Text('Statistics'), 
+          title: Text('Your Trip'), 
+          flexibleSpace: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+                colors: [
+                  const Color(0xFF3366FF),
+                  const Color(0xFF00CCFF),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp),
+          ),
         ),
-        body: Column(
+        ),
+        body: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(colors: [Colors.blue[800], Colors.green[600]],
+                begin: const FractionalOffset(0.5, 0.0),
+                end: const FractionalOffset(0.0, 0.5),
+                stops: [0.0,1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
+          child: Column(
           children: 
             <Widget>[
               Padding(
                 padding: EdgeInsets.only(left: 20.0, top: 35),
             child: CircleAvatar(
                 radius: 90.0,
-                backgroundImage:
-                    NetworkImage("https://banner2.kisspng.com/20180403/cuw/kisspng-trophy-computer-icons-prize-gold-medal-prize-5ac3ed9941a138.2167077015227897852688.jpg"),
+                backgroundImage:AssetImage('assets/trophy2.jpg'),
                 backgroundColor: Colors.blueAccent,
               ),
             ),
@@ -186,6 +206,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 20.0,
+                    color: Colors.white,
                   ),),
                 ),
               ],
@@ -193,18 +214,20 @@ class _StatisticsPageState extends State<StatisticsPage> {
             new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
+                  padding: EdgeInsets.only(left: 70.0, top: 20.0),
                   child: Text('Distance Covered',
                   style: TextStyle(
-                    fontSize: 20.0,
-                  ),),
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 30.0, top: 20.0),
-                  child: Text('30,000 KM',
+                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
+                  child: Text('6.78 KM',
                   style: TextStyle(
-                    fontSize: 20.0,
-                  ),),
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 )
               ],
             ),
@@ -212,12 +235,20 @@ class _StatisticsPageState extends State<StatisticsPage> {
             new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
-                  child: Text('Saved Trees'),
+                  padding: EdgeInsets.only(left: 70.0, top: 20.0),
+                  child: Text('Saved Trees',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 136.0, top: 20.0),
-                  child: Text('3x'),
+                  padding: EdgeInsets.only(left: 90.0, top: 20.0),
+                  child: Text('3x',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 )
               ],
             ),
@@ -225,27 +256,39 @@ class _StatisticsPageState extends State<StatisticsPage> {
             new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
-                  child: Text('Time '),
+                  padding: EdgeInsets.only(left: 70.0, top: 20.0),
+                  child: Text('Time ',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 180.0, top: 20.0),
-                  child: Text('36 Minutes'),
+                  padding: EdgeInsets.only(left: 135.0, top: 20.0),
+                  child: Text('36 Minutes',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),),
                 )
               ],
             ),
 
             Padding(
-              padding: EdgeInsets.only(left: 44.0, top: 20.0),
+              padding: EdgeInsets.only(left: 65.0, top: 10.0),
             child: Row(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(left:10.0),
+                        padding: EdgeInsets.only(left:8.0),
                       child: Text(
-                        "Notify parents?"
+                        "Notify parents?",
+                        style: TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                      ),
                       ),),
                       Padding(
-                        padding: EdgeInsets.only(left: 110.0),
+                        padding: EdgeInsets.only(left: 70.0),
                       child: CupertinoSwitch(
                         value: _switchValue,
                         onChanged: (bool value) {
@@ -259,17 +302,32 @@ class _StatisticsPageState extends State<StatisticsPage> {
                   ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 200),
+              padding: EdgeInsets.only(left:8.0, top: 70),
+              child: Center(
+                child: Text(
+                "Hoooray!!, You have travelled around \nPheonix Park twice",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                fontSize: 15.0,
+                color: Colors.white70,
+                fontStyle: FontStyle.italic,
+              ),
+              ),),),
+            Padding(
+              padding: EdgeInsets.only(top: 120),
               child: CupertinoButton(
                 color: Colors.green,
-                child: Text('Done'),
+                child: Text('Done',
+                style: TextStyle(
+                  color: Colors.white,
+                ),),
                 onPressed: () {
 
                 },
               ),
             ),
           ],
-        ));
+        )));
 
   }
   bool _switchValue = false;
